@@ -1,1 +1,6 @@
-git push heroku master
+flask
+flask_wtf
+gunicorn
+pytest
+requests
+wtforms

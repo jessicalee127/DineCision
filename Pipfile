@@ -1,1 +1,17 @@
-pipenv install --system --deploy
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask-wtf = "*"
+gunicorn = "*"
+pytest = "*"
+requests = "*"
+wtforms = "*"
+Flask = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.6"

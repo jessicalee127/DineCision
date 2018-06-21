@@ -42,10 +42,11 @@ One-time, first time only, to provision a new Heroku server:
 ```sh
 heroku create
 ```
-One-time, first time only, to configure environment varaibles on the server:
+
+One-time, first time only, to configure environment variables on the server:
 
 ```sh
-heroku config:set DINECISION_API_KEY="abc123"
+heroku config:set DINECISION_API_KEY="abc123" # where "abc123" is your Yelp API Key
 ```
 
 Subsequent times, to deploy:

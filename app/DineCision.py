@@ -5,6 +5,9 @@ import requests
 import sys
 import urllib
 import random
+import os
+
+API_KEY = os.environ["DINECISION_API_KEY"]
 
 
 # This client code can run on Python 2.x or 3.x.  Your imports can be
@@ -21,7 +24,7 @@ from urllib.parse import urlencode
 # It now uses private keys to authenticate requests (API Key)
 # You can find it on
 # https://www.yelp.com/developers/v3/manage_app
-API_KEY= "9aFYynAfext2uPCBlmYUdjsE_yKyue5f010epOxkBJ-qQnxSu1hTAmFZlLk2oJEorEbQopfTe5y4r08p70YaXd7zRpeUw9E6dKEEb7uMSN_U1i_921-UAqsj48UhW3Yx"
+# API_KEY= "9aFYynAfext2uPCBlmYUdjsE_yKyue5f010epOxkBJ-qQnxSu1hTAmFZlLk2oJEorEbQopfTe5y4r08p70YaXd7zRpeUw9E6dKEEb7uMSN_U1i_921-UAqsj48UhW3Yx"
 
 
 

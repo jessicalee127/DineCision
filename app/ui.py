@@ -6,8 +6,11 @@ from flask_wtf import FlaskForm
 import random
 import json
 
+import os
 
-API_KEY= "9aFYynAfext2uPCBlmYUdjsE_yKyue5f010epOxkBJ-qQnxSu1hTAmFZlLk2oJEorEbQopfTe5y4r08p70YaXd7zRpeUw9E6dKEEb7uMSN_U1i_921-UAqsj48UhW3Yx"
+API_KEY = os.environ["DINECISION_API_KEY"]
+
+#API_KEY= "9aFYynAfext2uPCBlmYUdjsE_yKyue5f010epOxkBJ-qQnxSu1hTAmFZlLk2oJEorEbQopfTe5y4r08p70YaXd7zRpeUw9E6dKEEb7uMSN_U1i_921-UAqsj48UhW3Yx"
 
 # API constants, you shouldn't have to change these.
 API_HOST = 'https://api.yelp.com'
@@ -22,8 +25,8 @@ SEARCH_LIMIT = 10
 
 app = Flask(__name__)
 
-app.config.from_object(__name__)
-app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
+# app.config.from_object(__name__)
+# app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
 
 
 class NameForm(Form):
@@ -36,18 +39,16 @@ def index():
     if request.method == 'POST' and 'location' in request.form:
         location = request.form['location']
         return redirect(url_for('confirm', location=request.form.get('location')))
-    #     # if form.validate():
-    #     #     flash('Your entered: ' + location)
-    #     # else:
-    #     #     flash('Location is a required field')
-        # session['location'] = form.location.data
-        # return redirect('/result')
+        # if form.validate():
+        #     flash('Your entered: ' + location)
+        # else:
+        #     flash('Location is a required field')
     return render_template('index.html')
 
 @app.route('/confirm/<location>')
 def confirm(location):
     random_business = yelp(location)
-    return render_template('confirm.html', random_business=random_business['name'], where_is_it=random_business["location"]['display_address'])
+    return render_template('confirm.html', random_business=random_business['name'], where_is_it_0=random_business["location"]['display_address'][0], where_is_it_1=random_business["location"]['display_address'][1], number_review=random_business["review_count"], pic_url=random_business["image_url"])
 
 
 def yelp(location_input):

@@ -4,12 +4,18 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+
 flask-wtf = "*"
 gunicorn = "*"
 pytest = "*"
 requests = "*"
 wtforms = "*"
 Flask = "*"
+=======
+ipython = "*"
+flask = "*"
+gunicorn = "*"
+python-dotenv = "*"
 
 [dev-packages]
 

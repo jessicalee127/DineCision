@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-<<<<<<< master
+
 flask-wtf = "*"
 gunicorn = "*"
 pytest = "*"
@@ -16,7 +16,6 @@ ipython = "*"
 flask = "*"
 gunicorn = "*"
 python-dotenv = "*"
->>>>>>> master
 
 [dev-packages]
 

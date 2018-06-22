@@ -1,22 +1,19 @@
 from flask import Flask, request, render_template, flash, redirect, url_for, session
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
 from wtforms.validators import DataRequired
-from DineCision import yelprequest
+from app.DineCision import yelprequest
 from flask_wtf import FlaskForm
 import random
 import json
-
 import os
 
-API_KEY = os.environ["DINECISION_API_KEY"]
-
-#API_KEY= "9aFYynAfext2uPCBlmYUdjsE_yKyue5f010epOxkBJ-qQnxSu1hTAmFZlLk2oJEorEbQopfTe5y4r08p70YaXd7zRpeUw9E6dKEEb7uMSN_U1i_921-UAqsj48UhW3Yx"
+API_KEY = os.environ.get("DINECISION_API_KEY") or "Please obtain a Yelp API Key and set it as an environment variable named 'DINECISION_API_KEY'"
+SECRET_KEY = os.environ.get("SECRET_KEY") or "my super secret"
 
 # API constants, you shouldn't have to change these.
 API_HOST = 'https://api.yelp.com'
 SEARCH_PATH = '/v3/businesses/search'
 BUSINESS_PATH = '/v3/businesses/'  # Business ID will come after slash.
-
 
 # Defaults for our simple example.
 DEFAULT_TERM = 'dinner'
@@ -24,10 +21,7 @@ DEFAULT_LOCATION = 'New York City, NY'
 SEARCH_LIMIT = 10
 
 app = Flask(__name__)
-
-# app.config.from_object(__name__)
-# app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
-
+app.secret_key = SECRET_KEY
 
 class NameForm(Form):
     location = TextField('location:', validators=[validators.required()])

@@ -7,7 +7,7 @@ import random
 import json
 import os
 
-API_KEY = os.environ.get("DINECISION_API_KEY") or "Please obtain a Yelp API Key and set it as an environment variable named 'DINECISION_API_KEY'"
+API_KEY = os.environ["DINECISION_API_KEY"]
 SECRET_KEY = os.environ.get("SECRET_KEY") or "my super secret"
 
 # API constants, you shouldn't have to change these.

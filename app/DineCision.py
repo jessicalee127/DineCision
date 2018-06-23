@@ -7,7 +7,7 @@ import urllib
 import random
 import os
 
-API_KEY = os.environ.get("DINECISION_API_KEY") or "Please obtain a Yelp API Key and set it as an environment variable named 'DINECISION_API_KEY'"
+API_KEY = os.environ["DINECISION_API_KEY"]
 
 # This client code can run on Python 2.x or 3.x.  Your imports can be
 # simpler if you only need one of those.

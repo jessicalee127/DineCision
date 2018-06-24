@@ -1,5 +1,16 @@
 # DineCision
 
+## Introduction
+
+This app helps individuals, friends, and families with decision fatigue to quickly pick great restaurants to dine in, using simple user search input: location address or zipcode. 
+
+When a restaurant is picked, the result will display the restaurant name, reason why it's recommended, location of the restaurant, and a vivid picture of the food from the restaurant.
+
+Proper error handling has been added to handle scenarios when there is no user input, and when there is not enough restaurant data from the user chosen location.
+
+An example of this app running on Heroku servers can be found here: https://powerful-eyrie-98502.herokuapp.com/
+
+
 ## Installation
 
 Prerequisites: Install Python 3.6.
@@ -32,6 +43,9 @@ Run the app locally:
 ```sh
 FLASK_APP=app FLASK_ENV=development flask run
 ```
+Run `DineCision.py` if you wish to run this app via command line only.
+
+Run `ui.py` if you wish to run the GUI version of the app from your localhost.
 
 ## Deploying
 
@@ -54,7 +68,3 @@ Subsequent times, to deploy:
 ```sh
 git push heroku master
 ```
-
-## Webapp Example
-
-An example of this app running on Heroku servers can be found here: https://powerful-eyrie-98502.herokuapp.com/

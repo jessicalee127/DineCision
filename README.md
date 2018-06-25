@@ -68,3 +68,9 @@ Subsequent times, to deploy:
 ```sh
 git push heroku master
 ```
+
+## Testing
+
+To test the functions in this app, import `pytest` package and run the pytest command line from within the `test` directory.
+
+The 5 unit tests covers the 5 functions defined in this app. 

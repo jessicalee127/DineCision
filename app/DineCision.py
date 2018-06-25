@@ -58,7 +58,7 @@ def main():
     print("Please go to " + random_business["name"] + " !")
     Show_more = input("Do you want to learn more about it (y/n): ")
     if Show_more == "y":
-        print(random_business)
+        print(random_business["name"] + ", located at " + str(random_business["location"]['display_address'][0]) + ", " + str(random_business["location"]['state']) + " " + str(random_business["location"]['zip_code']))
     else:
         print("enjoy!")
 

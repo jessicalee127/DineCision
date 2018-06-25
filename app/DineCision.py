@@ -36,42 +36,6 @@ def yelprequest(host, path, api_key, url_params=None):
     return response.json()
 
 
-def search(api_key, term, location):
-
-    url_params = {
-        'term': term.replace(' ', '+'),
-        'location': location.replace(' ', '+'),
-        'limit': SEARCH_LIMIT
-    }
-    return yelprequest(API_HOST, SEARCH_PATH, api_key, url_params=url_params)
-
-
-def get_business(api_key, business_id):
-    business_path = BUSINESS_PATH + business_id
-
-    return yelprequest(API_HOST, business_path, api_key)
-
-
-def query_api(term, location):
-    response = search(API_KEY, term, location)
-
-    businesses = response.get('businesses')
-
-    if not businesses:
-        print(u'No businesses for {0} in {1} found.'.format(term, location))
-        return
-
-    business_id = businesses[0]['id']
-
-    print(u'{0} businesses found, querying business info ' \
-        'for the top result "{1}" ...'.format(
-            len(businesses), business_id))
-    response = get_business(API_KEY, business_id)
-
-    print(u'Result for business "{0}" found:'.format(business_id))
-    pprint.pprint(response, indent=2)
-
-
 def main():
 
     location_input = input("Please enter the area you want to search for (e.g. 3 Times Square, New York City): ")
